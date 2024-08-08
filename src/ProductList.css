@@ -39,6 +39,12 @@ body {
    
 }
 
+.cartCountdiv{
+    color:white;
+    font-size: xx-large;
+    float:left;
+}
+
 /* Product Grid */
 .product-grid {
     display:flex;

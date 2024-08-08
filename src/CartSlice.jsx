@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-
+let cartCount=0;
 export const CartSlice = createSlice({
   name: 'cart',
   initialState: {
@@ -11,12 +11,15 @@ addItem: (state, action) => {
   const existingItem = state.items.find(item => item.name === name);
   if (existingItem) {
     existingItem.quantity++;
+    cartCount++;
+    console.log("cartCount cartslice : "+cartCount);
   } else {
     state.items.push({ name, image, cost, quantity: 1 });
   }
 },
     removeItem: (state, action) => {
         state.items = state.items.filter(item => item.name !== action.payload);
+        cartCount--;
     },
     updateQuantity: (state, action) => {
 const { name, quantity } = action.payload;
